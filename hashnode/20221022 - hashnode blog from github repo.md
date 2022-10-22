@@ -1,5 +1,5 @@
 ---
-title: Hashnode Blog from GutHub Repository
+title: Hashnode Blog from GitHub Repository
 slug: hashnode-blog-from-github-repository
 tags: hashnode, github
 domain: til.jacklinke.com
