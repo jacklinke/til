@@ -21,7 +21,7 @@ If you want to include images, a couple options are to use [Hashnode's Image Upl
 
 To find the raw url for an image in your GutHub repo: after committing the image, navigate to it on GitHub, and click the `Download` button to view the raw url. 
 
-![Example of Download button for an image on GitHub](20221022 - screenshot of download button.png)
+![Example of Download button for an image on GitHub](https://raw.githubusercontent.com/jacklinke/til/main/hashnode/20221022%20-%20screenshot%20of%20download%20button.png)
 
 You can find a list of valid tags to include in the Frontmatter (article metadata) [here](https://github.com/Hashnode/support/blob/main/misc/tags.json), but it has not been updated in some time. I added [Issue #67](https://github.com/Hashnode/support/issues/67) to the Hashnode Support repo, asking that they update the list. There is also a partial listing of [popular & recently added tags](https://hashnode.com/tags) on the Hashnode site.
 
