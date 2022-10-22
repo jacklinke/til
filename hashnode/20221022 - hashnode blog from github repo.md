@@ -30,3 +30,5 @@ You can find a list of valid tags to include in the Frontmatter (article metadat
 Because I intend to update this repo regularly with new content, I expect that the list of files will grow rapidly. A long list of files with no structure will become increasingly frustrating, so I'd like to be able to organize using folders 
 
 One thing I have been unable to find information on is whether Hashnode allows blog post files to be nested in folders. This initial attempt at creating a TIL entry should give me the answer to that.
+
+Update: Yep, it works! Go ahead and use folders to organize your articles.
