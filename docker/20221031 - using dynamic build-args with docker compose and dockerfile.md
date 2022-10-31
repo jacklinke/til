@@ -104,7 +104,7 @@ I ended up using two environmental variables to distinguish the general 'type' o
 
 ### The .env file
 
-If an .env file with a set of `KEY=value` environmental variables is included at the same directory level as the compose file, these environmental variables will be imported and can then be used by docker compose. ([ref](https://docs.docker.com/compose/environment-variables/#the-env-file))
+If an .env file with a set of `KEY=value` environmental variables is included at the same directory level as the compose file, these environmental variables should be imported and can then be used by docker compose ([ref](https://docs.docker.com/compose/environment-variables/#the-env-file)). My experience was that if I did not explicitly add the [`env_file`](https://docs.docker.com/compose/environment-variables/#the-env_file-configuration-option) argument to point to this file within the compose file (as I have done below), I received `UNBOUNDED VARIABLE` errors suggesting the variables were not actually getting passed to the Dockerfile.
 
 ```bash
 # ...
@@ -141,6 +141,8 @@ services:
       dockerfile: ./compose/django/Dockerfile
       args:
         HOSTTYPE: ${HOSTTYPE}
+    env_file:
+      - .env
     image: my_django_image
     # other config options
 
@@ -150,6 +152,8 @@ services:
       dockerfile: ./compose/traefik/Dockerfile
       args:
         HOSTNAME: ${HOSTNAME}
+    env_file:
+      - .env
     image: my_traefik_image
     # other config options
 ```
