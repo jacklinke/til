@@ -7,7 +7,7 @@ domain: til.jacklinke.com
 
 ## The Goal
 
-I wanted to override django-grappelli's admin index page in our project with some additional context. Specifically, [Watervize](https://www.watervize.com/) has multiple tenants, and each has a different url (e.g.: *tenant.watervize<i></i>.com* or *order.tenant<i></i>.com*). I wanted a list of each tenant and a link to its associated site and admin urls at the top of my admin index to keep these visible to our internal admins and to facilitate navigation from one tenant site to another.
+I wanted to override [django-grappelli's](https://django-grappelli.readthedocs.io/en/latest/) admin index page in our project with some additional context. Specifically, [Watervize](https://www.watervize.com/) has multiple tenants, and each has a different url (e.g.: *tenant.watervize<i></i>.com* or *order.tenant<i></i>.com*). I wanted a list of each tenant and a link to its associated site and admin urls at the top of my admin index to keep these visible to our internal admins and to facilitate navigation from one tenant site to another.
 
 I am using django-grappelli, but the same general technique will work for django's default admin or other admin packages, understanding that you will have to adjust the html to match the package you're working with.
 
