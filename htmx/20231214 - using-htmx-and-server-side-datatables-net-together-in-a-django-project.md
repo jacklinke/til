@@ -31,35 +31,33 @@ Here is the basic template for the Person list view. Unfortunately, our action b
 
 {% block content %}
 
-    <h2>
-        {% blocktranslate %}My Person Table{% endblocktranslate %}
-    </h2>
-        <button class="btn btn-icon btn-sm btn-outline-success shadow-0 rounded-circle waves-effect waves-themed"
-            title="New Person"
-            data-hx-get="{% url 'myapp:create_person_view' %}"
-            data-hx-target="#personFormContent"
-            data-hx-swap="innerHTML">
-            <i class="fal fa-circle-plus"></i>
-        </button>
+    <h2>My Person Table</h2>
+    <button class="btn btn-icon btn-outline-success"
+        title="New Person"
+        data-hx-get="{% url 'myapp:create_person_view' %}"
+        data-hx-target="#personFormContent"
+        data-hx-swap="innerHTML">
+        <i class="fal fa-circle-plus"></i>
+    </button>
 
-        <table id="personTable" class="table table-bordered table-hover table-striped w-100 fs-xs" style="width:100%">
-            <thead>
-                <tr>
-                    <th>{% blocktranslate %}Name{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Address{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Phone{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Action Buttons{% endblocktranslate %}</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>{% blocktranslate %}Name{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Address{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Phone{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Action Buttons{% endblocktranslate %}</th>
-                </tr>
-            </tfoot>
-        </table>
+    <table id="personTable" class="table table-bordered w-100">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Action Buttons</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Action Buttons</th>
+            </tr>
+        </tfoot>
+    </table>
 
     <div id="personFormContent"></div>
 
@@ -160,35 +158,33 @@ Here is the same template for the Person list view, except for the two changes n
 
 {% block content %}
 
-    <h2>
-        {% blocktranslate %}My Person Table{% endblocktranslate %}
-    </h2>
-        <button class="btn btn-icon btn-sm btn-outline-success shadow-0 rounded-circle waves-effect waves-themed"
-            title="New Person"
-            data-hx-get="{% url 'myapp:create_person_view' %}"
-            data-hx-target="#personFormContent"
-            data-hx-swap="innerHTML">
-            <i class="fal fa-circle-plus"></i>
-        </button>
+    <h2>My Person Table</h2>
+    <button class="btn btn-icon btn-outline-success"
+        title="New Person"
+        data-hx-get="{% url 'myapp:create_person_view' %}"
+        data-hx-target="#personFormContent"
+        data-hx-swap="innerHTML">
+        <i class="fal fa-circle-plus"></i>
+    </button>
 
-        <table id="personTable" class="table table-bordered table-hover table-striped w-100 fs-xs" style="width:100%">
-            <thead>
-                <tr>
-                    <th>{% blocktranslate %}Name{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Address{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Phone{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Actions{% endblocktranslate %}</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>{% blocktranslate %}Name{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Address{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Phone{% endblocktranslate %}</th>
-                    <th>{% blocktranslate %}Actions{% endblocktranslate %}</th>
-                </tr>
-            </tfoot>
-        </table>
+    <table id="personTable" class="table table-bordered w-100">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Action Buttons</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Action Buttons</th>
+            </tr>
+        </tfoot>
+    </table>
 
     <div id="personFormContent"></div>
 
