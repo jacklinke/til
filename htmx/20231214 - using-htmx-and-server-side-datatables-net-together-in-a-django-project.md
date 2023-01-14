@@ -89,8 +89,8 @@ Here is the basic template for the Person list view. Unfortunately, our action b
                     {  
                         "data": "id",  
                         render: function (data, type, row) {  
-                            return "<button class='btn mr-1' hx-get='/person/update/" + row.id + "/' hx-target='#htmx-dialog-lg' title='Update Person'></button>" +  
-                            "<button class='btn mr-2' hx-get='/person/delete/" + row.id + "/' hx-target='#htmx-dialog-lg' title='Delete Person'></button>";  
+                            return "<button class='btn mr-1' hx-get='/person/update/" + row.id + "/' hx-target='#personFormContent' title='Update Person'></button>" +  
+                            "<button class='btn mr-2' hx-get='/person/delete/" + row.id + "/' hx-target='#personFormContent' title='Delete Person'></button>";  
                         }  
                     },
                 ],
