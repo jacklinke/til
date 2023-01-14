@@ -123,7 +123,7 @@ DataTables provides an [`initComplete`](https://datatables.net/reference/option/
 So, we add the `initComplete` callback and use it to re-process the table.
 
 ```html
-initComplete: function () {
+"initComplete": function( settings, json ) {
     htmx.process('#personTable');
 },
 ```
@@ -132,13 +132,15 @@ initComplete: function () {
 
 DataTables provides a way to reload the table data from the Ajax data source: [`ajax.reload()`](https://datatables.net/reference/api/ajax.reload()).
 
-And htmx has a variety of events that we can hook into, including [htmx:afterRequest](https://htmx.org/events/#htmx:afterRequest), which fires after an htmx request completes.
+And htmx has a variety of events that we can hook into, including [htmx:afterRequest](https://htmx.org/events/#htmx:afterRequest), which fires after an htmx request completes. Like above, we need to make sure htmx re-processed nodes after a reload, so we call `htmx.process()` once again.
 
 Combining these, we can add the following to our page's JavaScript:
 
 ```html
 document.body.addEventListener('htmx:afterRequest', function(evt) {
-    personDataTable.ajax.reload();
+    personDataTable.ajax.reload(function() {
+        htmx.process('#personTable');
+    }, false)
 });
 ```
 
@@ -225,7 +227,7 @@ Here is the same template for the Person list view, except for the two changes n
                 // Use DataTables' initComplete callback to tell htmx to reprocess any htmx attributes in the table
                 // DataTables docs: https://datatables.net/reference/option/initComplete
                 // htmx docs: https://htmx.org/api/#process AND https://htmx.org/docs/#3rd-party
-                initComplete: function () {
+                "initComplete": function( settings, json ) {
                     htmx.process('#personTable');
                 },
             });
@@ -234,7 +236,9 @@ Here is the same template for the Person list view, except for the two changes n
             // DataTables docs: https://datatables.net/reference/api/ajax.reload()
             // htmx docs: https://htmx.org/events/#htmx:afterRequest
             document.body.addEventListener('htmx:afterRequest', function(evt) {
-                personDataTable.ajax.reload();
+                personDataTable.ajax.reload(function() {
+                    htmx.process('#personTable');
+                }, false)
             });
         });
 
