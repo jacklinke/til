@@ -247,6 +247,60 @@ Here is the same template for the Person list view, except for the two changes n
 {% endblock js %}
 ```
 
+## Refining (added 20230116)
+
+One issue with the above is that the table will be reloaded on **every** htmx request.
+
+We can narrow the scope of what triggers a DataTable reload by using the [HX-Trigger response header](https://htmx.org/headers/hx-trigger/).
+
+In our view, when returning a response for which the table should reload, we pass along the header.
+
+```python
+from django.http import HttpResponse
+
+def do_something_and_reload_table(request):
+    # Whatever view logic here
+
+    # Passing an empty reponse with HX-Trigger header.
+    return HttpResponse(status=204, headers={"HX-Trigger": "reloadTable"})
+
+# Or using TemplateResponse
+
+from django.template.response import TemplateResponse
+
+def do_something_and_reload_table(request):
+    template = "mytemplate.html"
+    context = {}
+    # Whatever view logic here
+
+    # Responding with a template with HX-Trigger header.
+    return TemplateResponse(request, template, context, headers={"HX-Trigger": "reloadTable"})
+
+```
+
+Instead of...
+
+```javascript
+document.body.addEventListener('htmx:afterRequest', function(evt) {
+    personDataTable.ajax.reload(function() {
+        htmx.process('#personTable');
+    }, false)
+});
+```
+
+We now listen for the `reloadTable` header, and process the htmx in the same way.
+
+```javascript
+document.body.addEventListener("reloadTable", function(evt){
+    personDataTable.ajax.reload(function() {
+        htmx.process('#personTable');
+    }, false)
+})
+````
+
+Now the DataTable will reload any time we conduct an htmx swap that sends an HX-Trigger header containing "reloadTable".
+
+
 ## Conclusion
 
 These same concepts can be modified and applied any time JavaScript is creating dynamic HTML content with htmx attributes and when we need to refresh page content based on htmx request completion - so long as the JavaScript library being used provides
