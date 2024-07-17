@@ -1,7 +1,7 @@
 ---
 title: Deprecating notes in Obsidian without resorting to an Archived folder
 slug: deprecating-notes-in-obsidian-without-resorting-to-an-archived-folder
-tags: obsidian,notes,writing,archiving,research,documentation,pkm
+tags: obsidian,notes,writing,research,documentation,pkm
 domain: til.jacklinke.com
 ---
 
